@@ -1,4 +1,4 @@
-package helmlibrary;
+package me.tarunsinghal;
 
 def helmVersion() {
     println "checking client/server version"

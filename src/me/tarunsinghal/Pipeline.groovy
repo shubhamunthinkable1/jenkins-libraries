@@ -9,7 +9,7 @@ def postActions(Map args) {
     sh "echo JOB DONE yoyo"
 }
 def clusterLogin(Map args) {
-    sh "#aws eks --region ${REGION} update-kubeconfig --name ${CLUSTER_NAME} --profile role"
+    sh "#aws eks --region ${args.REGION} update-kubeconfig --name ${args.CLUSTER_NAME} --profile role"
 }
 
 

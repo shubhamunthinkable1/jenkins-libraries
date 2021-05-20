@@ -5,7 +5,7 @@ def helmVersion() {
     sh "helm version --short"
 }
 
-def postActions(String APP_NAME, String ENV) {
+def postActions(Map args) {
     println "${APP_NAME} deployed on ${ENV} environment"
     sh "JOB DONE"
 }

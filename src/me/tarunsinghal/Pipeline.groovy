@@ -6,7 +6,10 @@ def helmVersion() {
 }
 
 def postActions(Map args) {
-    sh "JOB DONE yoyo"
+    sh "echo JOB DONE yoyo"
+}
+def clusterLogin(Map args) {
+    sh "#aws eks --region ${REGION} update-kubeconfig --name ${CLUSTER_NAME} --profile role"
 }
 
 

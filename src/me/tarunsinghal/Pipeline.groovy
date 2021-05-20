@@ -5,6 +5,11 @@ def helmVersion() {
     sh "helm version --short"
 }
 
+def postActions(String APP_NAME, String ENV) {
+    println "${APP_NAME} deployed on ${ENV} environment"
+    sh "JOB DONE"
+}
+
 
 def helmChartVersionUpdate(String version, String chart_dir) {
     println "${version}"

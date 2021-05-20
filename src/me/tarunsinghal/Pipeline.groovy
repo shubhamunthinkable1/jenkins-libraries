@@ -6,8 +6,7 @@ def helmVersion() {
 }
 
 def postActions(Map args) {
-    println "${APP_NAME} deployed on ${ENV} environment"
-    sh "JOB DONE"
+    sh "JOB DONE yoyo"
 }
 
 

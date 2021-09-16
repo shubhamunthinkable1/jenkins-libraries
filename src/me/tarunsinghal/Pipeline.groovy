@@ -34,6 +34,7 @@ def helmDeploy(Map args) {
     // If namespace isn't parsed into the function set the namespace to the name
     if (args.namespace == null) {
         namespace = "default"
+	creds = "regcred"
     } else {
         namespace = args.namespace
     }
@@ -46,9 +47,9 @@ def helmDeploy(Map args) {
         println "Running deployment"
 
         // reimplement --wait once it works reliable
-        sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --namespace=${namespace} --set imagePullSecrets[0].name="regcred""
+        sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --namespace=${namespace}"
 	    if (namespace == "default"){
-		    sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --namespace=${namespace} --kubeconfig=/var/lib/jenkins/.kube/confignew"
+		    sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --set imagePullSecrets[0].name=$(creds) --namespace=${namespace} --kubeconfig=/var/lib/jenkins/.kube/confignew"
 	    }
 	 
 

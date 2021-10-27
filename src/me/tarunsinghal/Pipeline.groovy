@@ -48,9 +48,9 @@ def helmDeploy(Map args) {
 
         // reimplement --wait once it works reliable
         sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --namespace=${namespace}"
-	    if (namespace == "default"){
-		  sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --set imagePullSecrets[0].name=regcred --namespace=${namespace} --kubeconfig=/var/lib/jenkins/.kube/confignew"
-	    }
+// 	    if (namespace == "default"){
+// 		  sh "helm upgrade --install ${args.name} ${args.chart_dir} --set image.tag=${args.version_tag} --set imagePullSecrets[0].name=.... --namespace=${namespace} --kubeconfig=/var/lib/jenkins/.kube/confignew"
+// 	    }
 	 
 
         // sleeping until --wait works reliably
